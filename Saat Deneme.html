@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <title>Deneme Saat</title>
+  </head>
+  <body class="bg-dark">
+    <div class="text-center">
+      <img
+        src="https://cdn-icons-png.flaticon.com/256/1600/1600951.png"
+        alt=""
+        class="rounded"
+      />
+      <div class="text1 text-center" id="yazi1">
+        Merhaba, <strong><span id="myName"></span></strong>! Hoş geldin!
+      </div>
+      <div id="myClock" class="clock"></div>
+      <div class="text2 text-center" id="yazi2">
+        tarihinde
+        <strong>ilk saat denememin</strong>
+        içinde bulunmaktasın!
+      </div>
+    </div>
+    <style>
+      #yazi1 {
+        font-size: 50px;
+        color: navy;
+      }
+
+      #yazi2 {
+        font-size: 20px;
+        color: forestgreen;
+      }
+
+      #myClock {
+        font-size: 20px;
+        color: teal;
+      }
+
+    </style>
+    <script>
+let fullName = prompt("İsminizi giriniz.")
+
+document.querySelector("#myName").innerHTML = fullName
+
+window.onload = showTime()
+
+function showTime() {
+    const haftaGünleri = ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+
+    const d = new Date();
+    let dayNow = haftaGünleri[d.getDay()];
+
+    let clockNow = new Date().toLocaleTimeString()
+    let dateNow = new Date().toLocaleDateString()
+    
+    document.querySelector("#myClock").innerHTML = clockNow + " " + dateNow + " " + dayNow
+    setTimeout(showTime, 1000)
+}
+    </script>
+  </body>
+</html>
